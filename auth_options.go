@@ -49,6 +49,17 @@ type AuthOptions struct {
 	// For an example of this, see here: https://github.com/rackspace/rack/blob/1.0.0/auth/clients.go#L311
 	AllowReauth bool
 
+
+  //The authorization scope. (Since v3.4) Specify unscoped to make an explicit
+  //unscoped token request, which returns an unscoped response without any authorization.
+  //This request behaves the same as a token request with no scope where the user has no
+  //default project defined. If you do not make an explicit unscoped token request and
+  //your role has a default project, the response might return a project- scoped token.
+  //If a default project is not defined, a token is issued without an explicit scope of
+  //authorization, which is the same as asking for an explicit unscoped token.
+
+  scope string
+  
 	// TokenID allows users to authenticate (possibly as another user) with an
 	// authentication token ID.
 	TokenID string

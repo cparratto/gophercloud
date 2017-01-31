@@ -200,6 +200,26 @@ func TestCreateDomainIDScope(t *testing.T) {
 	`)
 }
 
+func TestCreateDomainIDUnscoped(t *testing.T) {
+	options := gophercloud.AuthOptions{UserID: "fenris", Password: "g0t0h311", scope: "unscoped"}
+	authTokenPost(t, options, `
+		{
+			"auth": {
+				"identity": {
+					"methods": ["password"],
+					"password": {
+						"user": {
+							"id": "fenris",
+							"password": "g0t0h311"
+						}
+					}
+				}
+			}
+		}
+	`)
+}
+
+
 func TestCreateProjectNameAndDomainIDScope(t *testing.T) {
 	options := gophercloud.AuthOptions{UserID: "fenris", Password: "g0t0h311"}
 	scope := &Scope{ProjectName: "world-domination", DomainID: "1000"}
