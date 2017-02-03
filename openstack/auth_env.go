@@ -32,6 +32,7 @@ func AuthOptionsFromEnv() (gophercloud.AuthOptions, error) {
 	domainID := os.Getenv("OS_DOMAIN_ID")
 	domainName := os.Getenv("OS_DOMAIN_NAME")
 	tokenID := os.Getenv("OS_TOKEN")
+	scope := os.Getenv("OS_SCOPE")
 
 	if authURL == "" {
 		return nilOptions, ErrNoAuthURL
